@@ -11,6 +11,7 @@
     "start": "node index.js"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1125.0",
     "uuid": "^14.0.2",
     "yargs": "^18.1.0"
   }
