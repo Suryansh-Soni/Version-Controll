@@ -11,6 +11,7 @@
     "start": "node index.js"
   },
   "dependencies": {
+    "uuid": "^14.0.2",
     "yargs": "^18.1.0"
   }
 }
