@@ -15,9 +15,7 @@ yargs(hideBin(process.argv))
     'Initialize the repository',
     {},
     initRepo
-  )
-
-  .command(
+  ).command(
     'add <file>',
     'Add files to the index',
     (yargs) => {
