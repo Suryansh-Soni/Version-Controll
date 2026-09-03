@@ -8,7 +8,9 @@ const { pullRepo } = require('./controllers/pull');
 const { revertRepo } = require('./controllers/revert');
 yargs(hideBin(process.argv))
   .command('init', 'Initialize the repository',  {}, initRepo)
-  .command('add <file>', 'Add files to the index',(yargs)=>{yargs.positional("file",{describe: "The file to add to stagging area.",type:"string",})}, addRepo)
+  .command('add <file>', 'Add files to the index',(yargs)=>{yargs.positional("file",{describe: "The file to add to stagging area.",type:"string",})}, (argv)=>{
+    addRepo(argv.file);
+  })
   .command('commit <message>', 'Commit changes to the repository', (yargs) => {
     yargs.positional('message', {
       describe: 'The commit message',
