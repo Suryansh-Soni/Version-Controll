@@ -2,12 +2,19 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const mongoose = require('mongoose');
-const Repository = require('../models/repositoryModel');
+const Repository = require('../models/repoModel');
 const User = require('../models/userModel');
 const Issue = require('../models/issueModel');
 
 async function createRepository(req, res) {
-    const { owner, name, description, content, visibility } = req.body;
+    const {
+        owner,
+        name,
+        description,
+        content,
+        issues = [],
+        visibility
+    } = req.body;
 
     try {
         if (!owner || !name) {
@@ -22,12 +29,6 @@ async function createRepository(req, res) {
             });
         }
 
-        if (!mongoose.Types.ObjectId.isValid(issues)) {
-            return res.status(400).json({
-                message: "Invalid issues ID"
-            });
-        }
-
         const newRepository = new Repository({
             owner,
             name,
@@ -39,10 +40,17 @@ async function createRepository(req, res) {
 
         const result = await newRepository.save();
 
-        return res.status(201).json(result._id);
+        return res.status(201).json({
+            message: "Repository created successfully",
+            repository: result
+        });
+
     } catch (err) {
-        console.error(err);
-        return res.status(500).send(err.message);
+        console.error("Error creating repository:", err);
+
+        return res.status(500).json({
+            message: err.message
+        });
     }
 }
 
@@ -95,18 +103,27 @@ async function fetchRepositoryByName(req, res) {
 }
 
 async function fetchRepositoryForCurrentUser(req, res) {
-    const userId=req.user;
-    try{
-        const repositories=await Repository.find({owner:userId});
-        if(!repositories || repositories.length===0){
-            return res.status(404).json({
-                message:"No repositories found for the current user"
+    const { userID } = req.params;
+
+    try {
+        if (!mongoose.Types.ObjectId.isValid(userID)) {
+            return res.status(400).json({
+                message: "Invalid user ID"
             });
         }
+
+        const repositories = await Repository.find({
+            owner: userID
+        });
+
         return res.status(200).json(repositories);
+
     } catch (err) {
-        console.error(err);
-        return res.status(500).send(err.message);
+        console.error("Error fetching user repositories:", err);
+
+        return res.status(500).json({
+            message: err.message
+        });
     }
 }
 
