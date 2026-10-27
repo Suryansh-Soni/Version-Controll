@@ -26,4 +26,4 @@ const repoSchema = new Schema({
     }],
 });
 const Repository = mongoose.model('Repository', repoSchema);
-export default Repository;
+module.exports = Repository;
