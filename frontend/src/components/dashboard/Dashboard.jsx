@@ -20,7 +20,7 @@ const Dashboard = () => {
 
       try {
         const response = await fetch(
-          `http://13.233.26.77:3000/repo/user/${userId}`
+          `https://usshwcu6fl.execute-api.ap-south-1.amazonaws.com/repo/user/${userId}`
         );
 
         if (!response.ok) {
@@ -51,7 +51,7 @@ const Dashboard = () => {
     const fetchSuggestedRepositories = async () => {
       try {
         const response = await fetch(
-          "http://13.233.26.77:3000/repo/all"
+          "https://usshwcu6fl.execute-api.ap-south-1.amazonaws.com/repo/all"
         );
 
         if (!response.ok) {

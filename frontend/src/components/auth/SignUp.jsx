@@ -21,7 +21,7 @@ const Signup = () => {
     try {
       setLoading(true);
 
-      const res = await axios.post("http://13.233.26.77:3000/signup", {
+      const res = await axios.post("https://usshwcu6fl.execute-api.ap-south-1.amazonaws.com/signup", {
         email,
         password,
         username,

@@ -32,7 +32,7 @@ const CreateRepository = () => {
       setLoading(true);
 
       const res = await axios.post(
-        "http://13.233.26.77:3000/repo/create",
+        "https://usshwcu6fl.execute-api.ap-south-1.amazonaws.com/repo/create",
         {
           owner: owner,
           name: name,
