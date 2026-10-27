@@ -20,7 +20,7 @@ async function pushRepo() {
                 const fileContent = await fs.promises.readFile(filePath);
 
                 const params = {
-                    Bucket: s3_BUCKET,
+                    Bucket: process.env.AWS_BUCKET_NAME,
                     Key: `${commitDir}/${file}`,
                     Body: fileContent
                 };
