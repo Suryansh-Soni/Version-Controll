@@ -1,0 +1,91 @@
+.create-repo-wrapper {
+  min-height: 100vh;
+  background-color: #0d1117;
+  color: #f0f6fc;
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px;
+}
+
+.create-repo-container {
+  width: 100%;
+  max-width: 768px;
+}
+
+.create-repo-container h1 {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+.repo-subtitle {
+  color: #8b949e;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.create-repo-container hr {
+  border: none;
+  border-top: 1px solid #30363d;
+  margin: 24px 0;
+}
+
+.repo-form-group {
+  margin-bottom: 20px;
+}
+
+.repo-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.repo-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #f0f6fc;
+  font-size: 14px;
+  outline: none;
+}
+
+.repo-input:focus {
+  border-color: #58a6ff;
+  box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.2);
+}
+
+.visibility-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.visibility-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 0;
+  cursor: pointer;
+}
+
+.visibility-option input {
+  margin-top: 4px;
+}
+
+.visibility-option strong {
+  font-size: 14px;
+}
+
+.visibility-option p {
+  color: #8b949e;
+  font-size: 12px;
+  margin: 4px 0 0;
+}
+
+.create-btn-container {
+  display: flex;
+  justify-content: flex-end;
+}

@@ -20,7 +20,7 @@ const Dashboard = () => {
 
       try {
         const response = await fetch(
-          `http://localhost:3000/repo/user/${userId}`
+          `http://13.233.26.77:3000/repo/user/${userId}`
         );
 
         if (!response.ok) {
@@ -51,7 +51,7 @@ const Dashboard = () => {
     const fetchSuggestedRepositories = async () => {
       try {
         const response = await fetch(
-          "http://localhost:3000/repo/all"
+          "http://13.233.26.77:3000/repo/all"
         );
 
         if (!response.ok) {
